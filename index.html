@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Para Raquel ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --cream: #fdf8f5; --rose: #e8a0a0; --deep-rose: #c96868; --crimson: #a83232; --white: #ffffff; --shadow-rose: rgba(201,104,104,0.18); }
+html, body { height: 100%; overflow: hidden; background: var(--cream); font-family: 'Cormorant Garamond', serif; -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none; }
+.bg { position: fixed; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, #fde8e8 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 100% 100%, #fce4e4 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 0% 80%, #faeaea 0%, transparent 60%), var(--cream); }
+.bg::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); opacity: 0.4; pointer-events: none; }
+.petal-bg { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.petal-bg span { position: absolute; opacity: 0.07; animation: floatPetalBg linear infinite; }
+@keyframes floatPetalBg { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.07; } 90% { opacity: 0.05; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+.scene { position: relative; z-index: 5; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.dates { position: absolute; top: 4vh; left: 0; right: 0; display: flex; justify-content: center; gap: clamp(8px, 3vw, 20px); opacity: 0; animation: fadeInDown 1.2s ease 0.5s forwards; flex-wrap: nowrap; padding: 0 10px; }
+.date-pill { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.75); border: 1px solid rgba(201,104,104,0.22); border-radius: 18px; padding: 8px 12px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 15px var(--shadow-rose); min-width: 85px; }
+.date-pill .num { font-family: 'Playfair Display', serif; font-size: clamp(0.9rem, 3.5vw, 1.2rem); font-weight: 700; color: var(--crimson); line-height: 1; }
+.date-pill .label { font-size: 0.55rem; color: var(--deep-rose); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 3px; font-weight: 400; text-align: center; }
+.subtitle-top { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--deep-rose); letter-spacing: 0.14em; opacity: 0; animation: fadeIn 1.2s ease 1s forwards; margin-bottom: 25px; }
+.heart-wrapper { position: relative; display: flex; align-items: center; justify-content: center; width: clamp(180px, 50vw, 260px); height: clamp(180px, 50vw, 260px); cursor: pointer; flex-shrink: 0; }
+.trail { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; }
+.trail-1 { background: radial-gradient(circle, rgba(168,50,50,0.15) 0%, transparent 70%); animation: trailPulse 1.8s ease-in-out infinite; }
+.trail-2 { inset: -15px; background: radial-gradient(circle, rgba(201,104,104,0.1) 0%, transparent 65%); animation: trailPulse 1.8s ease-in-out 0.3s infinite; }
+.progress-ring-wrap { position: absolute; inset: -35px; z-index: 3; pointer-events: none; }
+.progress-ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+#progressCircle { fill: none; stroke: url(#progressGrad); stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 0.4s ease; }
+.heart-outer { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; animation: heartbeat 1.8s ease-in-out infinite; z-index: 2; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.08); } 28% { transform: scale(1); } 42% { transform: scale(1.05); } 70% { transform: scale(1); } }
+.heart-outer svg { width: 100%; height: 100%; }
+.counter-badge { position: absolute; bottom: -55px; left: 50%; transform: translateX(-50%); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; color: var(--crimson); white-space: nowrap; pointer-events: none; background: rgba(255,255,255,0.9); border: 1px solid rgba(201,104,104,0.3); border-radius: 30px; padding: 6px 16px; box-shadow: 0 4px 15px rgba(168,50,50,0.1); backdrop-filter: blur(5px); animation: fadeIn 1s ease 1.5s both; }
+.phrase-display { min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 0 25px; margin-top: 70px; text-align: center; width: 100%; }
+.phrase-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.4rem, 6vw, 1.8rem); color: var(--crimson); line-height: 1.4; opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; background: rgba(255,255,255,0.5); border-radius: 15px; padding: 15px 20px; backdrop-filter: blur(5px); }
+.phrase-text.visible { opacity: 1; transform: translateY(0); }
+.burst-phrase { position: fixed; pointer-events: none; z-index: 25; font-family: 'Great Vibes', cursive; font-size: clamp(1.8rem, 7vw, 2.3rem); color: var(--crimson); text-align: center; animation: burstFly 3s ease forwards; text-shadow: 0 2px 10px white; width: 250px; }
+@keyframes burstFly { 0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); } 15% { opacity: 1; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.1); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(-50% + var(--tx)*1.2), calc(-50% + var(--ty)*1.2)) scale(1); } }
+.particle { position: fixed; pointer-events: none; z-index: 15; animation: floatUp 2s ease forwards; }
+@keyframes floatUp { 0% { opacity: 1; transform: translate(0,0) scale(1); } 100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.3); } }
+.final-message { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fdf8f5; opacity: 0; pointer-events: none; transition: opacity 1.5s ease; padding: 20px; text-align: center; }
+.final-message.show { opacity: 1; pointer-events: all; }
+.final-main { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--crimson); margin: 15px 0; }
+@keyframes trailPulse { 0%, 100% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);} }
+.falling-rose { position: fixed; pointer-events: none; z-index: 150; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="petal-bg" id="petalBg"></div>
+<div class="scene">
+<div class="dates">
+<div class="date-pill"><span class="num">18 Ene</span><span class="label">Empezamos</span></div>
+<div class="date-pill"><span class="num">20 Feb</span><span class="label">Nuestra fecha</span></div>
+<div class="date-pill"><span class="num">3 Mar</span><span class="label">Nuestro momento</span></div>
+</div>
+<p class="subtitle-top">Para ti, Raquel</p>
+<div class="heart-wrapper" id="heartBtn">
+<div class="trail trail-2"></div>
+<div class="trail trail-1"></div>
+<div class="progress-ring-wrap">
+<svg viewBox="0 0 110 110"><defs><linearGradient id="progressGrad"><stop offset="0%" stop-color="#f4a0a0"/><stop offset="100%" stop-color="#a83232"/></linearGradient></defs>
+<circle cx="55" cy="55" r="52" fill="none" stroke="rgba(201,104,104,0.1)" stroke-width="3"/>
+<circle id="progressCircle" cx="55" cy="55" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+</svg>
+</div>
+<div class="heart-outer">
+<svg viewBox="0 0 200 185">
+<path fill="#ffffff" stroke="#c96868" stroke-width="2" d="M100 170 C100 170 15 110 15 55 C15 28 35 10 60 10 C78 10 93 20 100 33 C107 20 122 10 140 10 C165 10 185 28 185 55 C185 110 100 170 100 170Z"/>
+<ellipse cx="70" cy="46" rx="20" ry="11" fill="rgba(255,255,255,0.8)" transform="rotate(-22 70 46)"/>
+</svg>
+</div>
+<div class="counter-badge" id="counterBadge">Pulsa 20 veces ♡</div>
+</div>
+<div class="phrase-display"><p class="phrase-text" id="phraseText">Toca el corazón, mi vida...</p></div>
+</div>
+<div class="final-message" id="finalMsg">
+<div style="font-size:3rem">👑</div>
+<div style="font-size:4rem">🤍</div>
+<p style="font-family:'Great Vibes'; font-size:2rem; color:#c96868">Con todo mi amor...</p>
+<h1 class="final-main">Te adoro mi queridísima<br>y preciosa Raquel.</h1>
+<p style="font-style:italic; font-size:1.4rem; color:#c96868">Eres el amor de mi vida.</p>
+<p style="font-family:'Great Vibes'; font-size:1.8rem; color:#a83232; margin-top:15px">Dios nos ha unido, mi amor.</p>
+<p style="font-weight:bold; margin-top:10px">Tú y Yo — por siempre. ♡</p>
+</div>
+<script>
+const phrases = ["Cada día contigo es mi favorito.", "Contigo el mundo es mejor.", "Mi corazón es tuyo.", "Eres mi calma.", "Mi lugar favorito es contigo.", "Amo tu sonrisa.", "Eres mi pensamiento más lindo.", "El tiempo contigo vuela.", "Vales todo el oro del mundo.", "Gracias por elegirme.", "Eres mi felicidad.", "Amo como eres.", "Eres magia pura.", "Eres lo que siempre soñé.", "El 18 de enero cambió todo.", "Eres mi tesoro.", "20 de febrero: siempre.", "3 de marzo: único.", "Te amo cada segundo más.", "Gracias por existir, Raquel."];
+let count = 0, exploded = false, lastTap = 0;
+const TOTAL = 20;
+const CIRCUM = 326.7;
+function spawnParticles(x, y) {
+for (let i = 0; i < 10; i++) {
+const p = document.createElement('div');
+p.className = 'particle';
+p.textContent = ['🌹','🤍','✨','♡'][Math.floor(Math.random()*4)];
+p.style.left = x + 'px'; p.style.top = y + 'px';
+p.style.setProperty('--tx', (Math.random()-0.5)*200 + 'px');
+p.style.setProperty('--ty', (Math.random()-0.5)*200 + 'px');
+document.body.appendChild(p);
+setTimeout(() => p.remove(), 2000);
+}
+}
+function spawnBurst(text, x, y) {
+const b = document.createElement('div');
+b.className = 'burst-phrase';
+b.textContent = text;
+b.style.left = x + 'px'; b.style.top = (y - 50) + 'px';
+b.style.setProperty('--tx', (Math.random()-0.5)*100 + 'px');
+b.style.setProperty('--ty', (-100 - Math.random()*50) + 'px');
+document.body.appendChild(b);
+setTimeout(() => b.remove(), 3000);
+}
+function onTap(e) {
+const now = Date.now();
+if (now - lastTap < 350 || exploded) return;
+lastTap = now;
+count++;
+const rect = document.getElementById('heartBtn').getBoundingClientRect();
+const x = rect.left + rect.width/2;
+const y = rect.top + rect.height/2;
+spawnParticles(x, y);
+const txt = phrases[count-1];
+spawnBurst(txt, x, y);
+document.getElementById('phraseText').textContent = txt;
+document.getElementById('phraseText').classList.add('visible');
+const offset = CIRCUM - (count/TOTAL)*CIRCUM;
+document.getElementById('progressCircle').style.strokeDashoffset = offset;
+document.getElementById('counterBadge').textContent = count >= TOTAL ? "¡Listo! 🤍" : `Faltan ${TOTAL-count} toques ♡`;
+if (count >= TOTAL) {
+exploded = true;
+setTimeout(() => {
+document.getElementById('finalMsg').classList.add('show');
+setInterval(() => {
+const r = document.createElement('div');
+r.className = 'falling-rose';
+r.textContent = '🌹';
+r.style.left = Math.random()*100+'vw';
+r.style.top = '-5vh';
+r.style.fontSize = Math.random()*2+1+'rem';
+r.style.animationDuration = Math.random()*3+2+'s';
+document.body.appendChild(r);
+}, 200);
+}, 500);
+}
+}
+document.getElementById('heartBtn').addEventListener('touchstart', (e) => { e.preventDefault(); onTap(); }, {passive:false});
+document.getElementById('heartBtn').addEventListener('click', onTap);
+</script>
+</body>
+</html>
